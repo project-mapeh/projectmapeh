@@ -1,4 +1,6 @@
-/* ---------------- Reset ---------------- */
+/* ==========================
+   RESET
+========================== */
 
 *{
     margin:0;
@@ -7,100 +9,114 @@
 }
 
 body{
-    margin:0;
     font-family:Arial, Helvetica, sans-serif;
-
     display:flex;
     justify-content:center;
-    padding:40px;
+    padding:30px;
 
     background:
-        radial-gradient(circle at top left,
-        rgba(255,185,150,.45) 0%,
-        transparent 35%),
+    radial-gradient(circle at top left,
+    rgba(255,185,150,.45),
+    transparent 35%),
 
-        radial-gradient(circle at bottom right,
-        rgba(255,185,150,.35) 0%,
-        transparent 40%),
+    radial-gradient(circle at bottom right,
+    rgba(255,185,150,.35),
+    transparent 40%),
 
-        linear-gradient(135deg,#ffd8c5,#fff5ef);
+    linear-gradient(135deg,#ffd8c5,#fff5ef);
 }
 
-p{
-
-    font-size:20px;
-
-    line-height:1.7;
-
-    text-align:center;
-
-    color:#47393d;
-}
-
-/* ---------------- Poster ---------------- */
+/* ==========================
+   POSTER
+========================== */
 
 .poster{
-
-    position:relative;
-
-    width:1200px;
+    width:100%;
+    max-width:1000px;
 
     background:#fffaf7;
 
-    border-radius:18px;
+    border-radius:20px;
 
     padding:40px;
 
-    display:grid;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
 
-    grid-template-columns:45% 55%;
-
-    gap:40px;
+    position:relative;
 
     overflow:hidden;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.12);
 }
 
-.left,
-.right {
-    padding: 0 25px;
-}
+/* Decorative dots */
 
 .poster::before{
-
     content:"";
-
     position:absolute;
-
     inset:0;
 
     background-image:
-
     radial-gradient(#efc1aa 1.8px, transparent 1.8px);
 
     background-size:14px 14px;
 
-    opacity:.35;
-
-    mask-image:
-    radial-gradient(circle at top right,
-    black 0,
-    black 230px,
-    transparent 420px),
-
-    radial-gradient(circle at bottom left,
-    black 0,
-    black 230px,
-    transparent 420px);
+    opacity:.25;
 
     pointer-events:none;
 }
 
-/* ---------------- Images ---------------- */
+/* ==========================
+   TITLE
+========================== */
+
+.title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.title h1{
+    font-size:68px;
+    color:#3d2f34;
+    line-height:1;
+}
+
+.title h2{
+    font-size:36px;
+    color:#6c555c;
+    margin:8px 0;
+}
+
+/* ==========================
+   DIVIDER
+========================== */
+
+.divider{
+    width:75%;
+    margin:35px auto;
+    border-bottom:3px solid #e3b8a5;
+    position:relative;
+}
+
+.divider::after{
+    content:"◆";
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    top:-13px;
+
+    background:#fffaf7;
+
+    color:#d59f8d;
+
+    padding:0 10px;
+}
+
+/* ==========================
+   IMAGES
+========================== */
 
 .image-box{
+    max-width:850px;
+    margin:0 auto 35px;
 
     background:#efc8b7;
 
@@ -110,100 +126,63 @@ p{
 }
 
 .image-box img{
-
     width:100%;
-
     display:block;
-
-    border-radius:6px;
+    border-radius:8px;
 }
 
-/* ---------------- Titles ---------------- */
+/* ==========================
+   CONTENT
+========================== */
 
-.title{
+.section,
+.caption{
+    max-width:850px;
+    margin:auto;
+    padding:0 15px;
+}
 
+.section h2{
     text-align:center;
-
-    margin:30px 0;
-}
-
-.title h1{
-
-    font-size:68px;
-
-    color:#3d2f34;
-
-    font-weight:900;
-
-    line-height:1;
-}
-
-.title h2{
-
-    font-size:42px;
-
-    color:#5d4348;
-
-    margin:8px 0;
-}
-
-/* ---------------- Sections ---------------- */
-
-.vr,
-.ar{
-    margin-top:30px;
-}
-
-.vr h2,
-.ar h2{
-
-    font-size:70px;
-
+    font-size:48px;
     color:#3b2c30;
-
     margin-bottom:20px;
-
-    font-weight:900;
 }
 
-ul{
-
-    margin-left:25px;
-
-    line-height:1.8;
-
+.section p,
+.caption p{
     font-size:20px;
+    line-height:1.8;
+    text-align:justify;
+    color:#444;
+    margin-bottom:20px;
 }
 
-li{
+.section ul{
+    margin-left:30px;
+    font-size:20px;
+    line-height:1.8;
+}
 
+.section li{
     margin-bottom:10px;
 }
 
-li::marker{
-
+.section li::marker{
     color:#d99d8a;
 }
 
-.vr p,
-.ar p,
-.caption p{
-    margin-top:18px;
-    line-height:1.8;
-    font-size:20px;
-    text-align:justify;
-}
+/* ==========================
+   RESPONSIVE
+========================== */
 
-.caption{
-    margin:40px 0;
-}
+@media (max-width:768px){
 
-/* ---------------- Responsive ---------------- */
-
-@media (max-width:900px){
+    body{
+        padding:15px;
+    }
 
     .poster{
-        grid-template-columns:1fr;
         padding:25px;
     }
 
@@ -212,49 +191,48 @@ li::marker{
     }
 
     .title h2{
-        font-size:28px;
+        font-size:24px;
     }
 
-    .vr h2,
-    .ar h2{
-        font-size:34px;
+    .section h2{
+        font-size:32px;
     }
 
-    .vr p,
-    .ar p,
+    .section p,
     .caption p,
-    .vr ul,
-    .ar ul{
-        font-size:18px;
+    .section ul{
+        font-size:16px;
+    }
+
+    .divider{
+        width:95%;
     }
 }
 
-.divider{
+/* ==========================
+   VIDEO
+========================== */
 
-    width:70%;
-
-    margin:25px auto;
-
-    border-bottom:3px solid #e3b8a5;
-
-    position:relative;
+.video-section{
+    max-width:850px;
+    margin:40px auto 0;
+    text-align:center;
 }
 
-.divider::after{
+.video-section h2{
+    font-size:42px;
+    color:#3b2c30;
+    margin-bottom:20px;
+}
 
-    content:"◆";
+.video-section video{
+    width:100%;
+    border-radius:12px;
+    border:8px solid #efc8b7;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
 
-    position:absolute;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    top:-13px;
-
-    color:#d59f8d;
-
-    background:#fffaf7;
-
-    padding:0 10px;
+.video-section{
+    position:relative;
+    z-index:2;
 }
