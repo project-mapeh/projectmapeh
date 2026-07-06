@@ -1,0 +1,260 @@
+/* ---------------- Reset ---------------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+
+    display:flex;
+    justify-content:center;
+    padding:40px;
+
+    background:
+        radial-gradient(circle at top left,
+        rgba(255,185,150,.45) 0%,
+        transparent 35%),
+
+        radial-gradient(circle at bottom right,
+        rgba(255,185,150,.35) 0%,
+        transparent 40%),
+
+        linear-gradient(135deg,#ffd8c5,#fff5ef);
+}
+
+p{
+
+    font-size:20px;
+
+    line-height:1.7;
+
+    text-align:center;
+
+    color:#47393d;
+}
+
+/* ---------------- Poster ---------------- */
+
+.poster{
+
+    position:relative;
+
+    width:1200px;
+
+    background:#fffaf7;
+
+    border-radius:18px;
+
+    padding:40px;
+
+    display:grid;
+
+    grid-template-columns:45% 55%;
+
+    gap:40px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.12);
+}
+
+.left,
+.right {
+    padding: 0 25px;
+}
+
+.poster::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+    radial-gradient(#efc1aa 1.8px, transparent 1.8px);
+
+    background-size:14px 14px;
+
+    opacity:.35;
+
+    mask-image:
+    radial-gradient(circle at top right,
+    black 0,
+    black 230px,
+    transparent 420px),
+
+    radial-gradient(circle at bottom left,
+    black 0,
+    black 230px,
+    transparent 420px);
+
+    pointer-events:none;
+}
+
+/* ---------------- Images ---------------- */
+
+.image-box{
+
+    background:#efc8b7;
+
+    padding:12px;
+
+    border-radius:12px;
+}
+
+.image-box img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:6px;
+}
+
+/* ---------------- Titles ---------------- */
+
+.title{
+
+    text-align:center;
+
+    margin:30px 0;
+}
+
+.title h1{
+
+    font-size:68px;
+
+    color:#3d2f34;
+
+    font-weight:900;
+
+    line-height:1;
+}
+
+.title h2{
+
+    font-size:42px;
+
+    color:#5d4348;
+
+    margin:8px 0;
+}
+
+/* ---------------- Sections ---------------- */
+
+.vr,
+.ar{
+    margin-top:30px;
+}
+
+.vr h2,
+.ar h2{
+
+    font-size:70px;
+
+    color:#3b2c30;
+
+    margin-bottom:20px;
+
+    font-weight:900;
+}
+
+ul{
+
+    margin-left:25px;
+
+    line-height:1.8;
+
+    font-size:20px;
+}
+
+li{
+
+    margin-bottom:10px;
+}
+
+li::marker{
+
+    color:#d99d8a;
+}
+
+.vr p,
+.ar p,
+.caption p{
+    margin-top:18px;
+    line-height:1.8;
+    font-size:20px;
+    text-align:justify;
+}
+
+.caption{
+    margin:40px 0;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width:900px){
+
+    .poster{
+        grid-template-columns:1fr;
+        padding:25px;
+    }
+
+    .title h1{
+        font-size:42px;
+    }
+
+    .title h2{
+        font-size:28px;
+    }
+
+    .vr h2,
+    .ar h2{
+        font-size:34px;
+    }
+
+    .vr p,
+    .ar p,
+    .caption p,
+    .vr ul,
+    .ar ul{
+        font-size:18px;
+    }
+}
+
+.divider{
+
+    width:70%;
+
+    margin:25px auto;
+
+    border-bottom:3px solid #e3b8a5;
+
+    position:relative;
+}
+
+.divider::after{
+
+    content:"◆";
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    top:-13px;
+
+    color:#d59f8d;
+
+    background:#fffaf7;
+
+    padding:0 10px;
+}
